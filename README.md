@@ -35,7 +35,7 @@ Krok 5 - Uczenie
 ```
 cd tensorflow-for-poets-2
 
-python scripts/retrain.py --output_graph=tf_files/retrained_graph.pb --output_labels=tf_files/retrained_labels.txt --image_dir=tf_files/images --how_many_training_steps=4000 --architecture=mobilenet_0.50_224
+python scripts/retrain.py --output_graph=tf_files/retrained_graph.pb --output_labels=tf_files/retrained_labels.txt --image_dir=tf_files/images --how_many_training_steps=500 --architecture=mobilenet_0.50_224
 ```
 
 Uzyskany wynik 95.8%
