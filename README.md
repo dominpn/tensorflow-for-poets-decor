@@ -47,3 +47,5 @@ Krok 6 - Sprawdzenie wyników dla jednego obrazu
 ```
 python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image="tf_files/images/wycinanki lowickie/02_04_2_002.jpg"
 ```
+
+![Screenshot](one_image_test.PNG)
