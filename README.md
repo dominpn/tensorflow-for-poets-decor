@@ -39,3 +39,11 @@ python scripts/retrain.py --output_graph=tf_files/retrained_graph.pb --output_la
 ```
 
 Uzyskany wynik 95.8%
+
+![Screenshot](result.PNG)
+
+Krok 6 - Sprawdzenie wyników dla jednego obrazu
+
+```
+python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image="tf_files/images/wycinanki lowickie/02_04_2_002.jpg"
+```
