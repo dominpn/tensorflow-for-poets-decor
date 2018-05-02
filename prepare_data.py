@@ -10,10 +10,13 @@ CATEGORY_NAME = "decor"
 
 def read_csv():
     csv_data = []
-    with open(DATA_LOCATION + "decor.csv") as file:
-        reader = csv.DictReader(file)
-        for line in reader:
-            csv_data.append(line)
+    try:
+        with open(DATA_LOCATION + "decor.csv") as file:
+            reader = csv.DictReader(file)
+            for line in reader:
+                csv_data.append(line)
+    except FileNotFoundError:
+        print("Brak pliku CSV w podanej lokalizacji")
     return csv_data
 
 
@@ -35,12 +38,16 @@ def convert_png_to_jpeg(image_name, folder_name):
 
 def copy_image(csv_data, column):
     for row in csv_data:
-        if row["type"] == "product":
-            folder_name = row[column].lower()
-            if 'ĺ‚' in folder_name:
-                folder_name = folder_name.replace('ĺ‚','l')
-            create_folder(folder_name)
-            convert_png_to_jpeg(row["file"],folder_name)
+        try:
+            if row["type"] == "product":
+                folder_name = row[column].lower()
+                if 'ĺ‚' in folder_name:
+                    folder_name = folder_name.replace('ĺ‚','l')
+                create_folder(folder_name)
+                convert_png_to_jpeg(row["file"],folder_name)
+        except KeyError:
+            print("Podana nazwa kolumny nie znajduje się w pliku CSV")
+            break
 
 
 if __name__ == "__main__":
